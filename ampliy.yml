@@ -1,0 +1,23 @@
+version: 1
+frontend:
+  phases:
+    # Install dependencies
+    preBuild:
+      commands:
+        - npm install
+
+    # Build the app
+    build:
+      commands:
+        - npm run build
+
+  artifacts:
+    # Files to deploy
+    baseDirectory: build
+    files:
+      - '**/*'
+
+  cache:
+    # Caching dependencies to speed up build times
+    paths:
+      - node_modules/**/*
